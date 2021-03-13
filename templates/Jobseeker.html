@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+
+
+<!--<div class="container card">
+    <h1 class="border-bottom mb-4">Available openings</h1>
+    <div class="card-body">
+        <table class="table table-hover styled-table">
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Experience</th>
+                <th>Location</th>
+                <th>Join</th>
+            </tr>
+            {% for c in companies %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.position}}</td>
+                    <td>{{c.description}}</td>
+                    <td>{{c.salary}}</td>
+                    <td>{{c.experience}}</td>
+                    <td>{{c.Location}}</td>
+                    <td><a href="{% url 'apply' c.id %}" class="btn btn-outline-info" type="submit">Apply</a></td>
+
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>  -->
+
+<h1 class="pghead border-bottom mb-4">Available openings</h1>
+<br>
+<br>
+{% for c in companies %}
+
+
+    <div class="card-wrapper">
+    <div class="card-grid-space">
+
+        <div class="card cardt mx-auto" style="background-color: rgb(149, 165, 238); color: black;">
+            <div>
+                <h1>{{c.name}}</h1>
+                <p>Salary: {{c.salary}} per anum <br> Experience required: {{c.experience}} yrs <br>Location: {{c.Location}} <br>Job Description: {{c.description}}</p>
+                <div class="date">For position of {{c.position}}</div>
+                <div class="tags">
+                  <a href="{% url 'apply' c.id %}" class="tag" type="submit" style="text-decoration: none;">Apply</a>
+                </div>
+              </div>
+            </div>
+            </div>
+    </div>
+    <br>
+    <br>
+
+    {% endfor %}
+
+{% endblock %}
